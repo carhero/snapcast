@@ -1,6 +1,6 @@
 /***
     This file is part of snapcast
-    Copyright (C) 2014-2020  Johannes Pohl
+    Copyright (C) 2014-2021  Johannes Pohl
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -370,6 +370,12 @@ int main(int argc, char** argv)
                 cout << "Options are a comma separated list of:\n"
                      << " \"buffer_time=<total buffer size [ms]>\" - default 80, min 10\n"
                      << " \"fragments=<number of buffers>\" - default 4, min 2\n";
+            }
+#endif
+#if defined(HAS_OBOE) || defined(HAS_OPENSL)
+            else if ((settings.player.player_name == player::OBOE) || (settings.player.player_name == player::OPENSL))
+            {
+                cout << "TODO: performance mode\n";
             }
 #endif
             else

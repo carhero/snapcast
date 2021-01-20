@@ -1,6 +1,6 @@
 /***
     This file is part of snapcast
-    Copyright (C) 2014-2020  Johannes Pohl
+    Copyright (C) 2014-2021  Johannes Pohl
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -97,7 +97,7 @@ void PosixStream::do_read()
                 // no data available, fill with silence
                 memset(chunk_->payload + len, 0, toRead - len);
 
-                // avoid overflow after 186min 24s silence (at 48000:16:2) 
+                // avoid overflow after 186min 24s silence (at 48000:16:2)
                 if (idle_bytes_ <= max_idle_bytes_)
                     idle_bytes_ += toRead - len;
                 break;
